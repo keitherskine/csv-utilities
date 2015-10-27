@@ -7,7 +7,7 @@ import unittest
 
 sys.path[0:0] = [".."]
 
-import delimited
+from csvutils import delimited
 
 class DelimitedTests(unittest.TestCase):
 
