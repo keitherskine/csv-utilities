@@ -9,8 +9,8 @@ lines, encoding, and files with variable number of fields in them.
 
 .. code-block:: python
 
-    >>> import csvutils
-    >>> with Reader(my_filename, my_fields) as reader:
+    >>> from csvutils import delimited
+    >>> with delimited.Reader(my_filename, my_fields) as reader:
             print('first line: {}'.format(next(reader)))
             reader.reset()
             for row in reader:
@@ -22,8 +22,8 @@ lines, encoding, and files with variable number of fields in them.
 Installation
 ------------
 
-To install Pyap, simply:
+csvutils is not in PyPI, so to install it, download the zipfile from GitHub and install using pip:
 
 .. code-block:: bash
 
-    $ pip install pyap
+    $ pip install /path/to/master.zip
