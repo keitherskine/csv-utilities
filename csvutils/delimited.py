@@ -94,7 +94,7 @@ class Reader:
 
         self.file = None
         self.reader = None
-        self.rows_read = None
+        self._rows_read = None
 
         self._len_fields = len(self.fields)
         self._field_types = []
@@ -130,7 +130,7 @@ class Reader:
                                  quotechar=self.quote_char,
                                  quoting=csv.QUOTE_NONE if self.quote_char is None else DEFAULT_QUOTING,
                                  skipinitialspace=DEFAULT_SKIPINITIALSPACE)
-        self.rows_read = 0
+        self._rows_read = 0
         for index in range(self.number_of_header_lines):
             next(self.file)
 
@@ -160,7 +160,7 @@ class Reader:
             if self.rpad and len(line) < self._len_fields:
                 line += [''] * (self._len_fields - len(line))
 
-        self.rows_read += 1
+        self._rows_read += 1
         return line
 
     # return to the start of the file, just before the first non-header line
@@ -169,7 +169,7 @@ class Reader:
             self._open()
         else:
             self.file.seek(0)
-            self.rows_read = 0
+            self._rows_read = 0
             for index in range(self.number_of_header_lines):
                 next(self.file)
 
@@ -181,3 +181,7 @@ class Reader:
         self.reader = None
         self.file.close()
         self.file = None
+
+    @property
+    def rows_read(self):
+        return self._rows_read

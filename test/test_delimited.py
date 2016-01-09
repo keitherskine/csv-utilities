@@ -95,6 +95,7 @@ class DelimitedTests(unittest.TestCase):
             self.assertEqual('cp1252', reader.file.encoding)
             self.assertEqual('strict', reader.file.errors)
             self.assertEqual(False, reader.reader.dialect.strict)
+        self.assertEqual(3, reader.rows_read)
         self.assertEqual(3, len(actual_rows))
         self.assertEqual(['ABC', '1000', '100.5', '2001-01-01', '2001-01-01 21:30:00'], actual_rows[0])
         self.assertEqual(['DEF', '2000', '200.5', '2002-02-02', '2002-02-02 22:30:00'], actual_rows[1])

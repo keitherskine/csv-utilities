@@ -13,7 +13,7 @@ setup(name='csvutils',
       author='Keith Erskine',
       author_email='toastie604@gmail.com',
       license='MIT',
-      packages=['csvutils', 'csvutils.delimited'],
+      packages=['csvutils'],
       download_url='https://github.com/keitherskine/csv-utilities',
       classifiers=(
           'Development Status :: 4 - Beta',
